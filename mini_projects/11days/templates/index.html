@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/styles/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+
+    <!--//데이터 연결하고 살리기-->
+    <!--    <script type="text/javascript">-->
+
+    <!--        // $(document).ready(function () {-->
+    <!--        //     $("#available").html("");-->
+    <!--        //-->
+    <!--        // });-->
+    <!--        //달력 없애기-->
+    <!--        // function printName() {-->
+    <!--        //     $("#create_button").click(function () {-->
+    <!--        //         $("#top_wrap").css("display", "none");-->
+    <!--        //     });-->
+    <!--        //-->
+    <!--        //     const name = document.getElementById('aaa').value;-->
+    <!--        //     document.getElementById("sub_event_name").innerText = name;-->
+    <!--        // }-->
+
+    <!--        function adduser() {-->
+    <!--            let user = $('#user').val()-->
+
+    <!--            $.ajax({-->
+    <!--                type: "POST",-->
+    <!--                url: "/events",-->
+    <!--                data: {user_give: user},-->
+    <!--                success: function (response) {-->
+    <!--                    alert(response["msg"]);-->
+    <!--                    window.location.reload();-->
+    <!--                }-->
+    <!--            })-->
+    <!--        }-->
+    <!--//유저 데이터베이스에서 받아서 넣기 -->
+    <!--        function showuser() {-->
+    <!--            $.ajax({-->
+    <!--                type: "GET",-->
+    <!--                url: "/events",-->
+    <!--                data: {},-->
+    <!--                success: function (response) {-->
+    <!--                    let events = response['all_events']-->
+    <!--                    for (let i = 0; i < events.length; i++) {-->
+    <!--                        let users = events[i]['users']-->
+    <!--                        // let author = reviews[i]['author']-->
+
+
+    <!--                        let temp_html = `-->
+    <!--                         <a>${users}</a>-->
+    <!--                        `-->
+    <!--                        $('#userlist').append(temp_html)-->
+    <!--                    }-->
+    <!--                }-->
+    <!--            })-->
+    <!--        }-->
+    <!--    </script>-->
+
+    <title>planme</title>
+</head>
+
+<body>
+
+<div class="top-navbar">
+    <div class="top-navbar-logo">
+    </div>
+    <a href="/">planme</a>
+</div>
+
+<div id="wrap">
+
+    <div class="calendar">
+        <div class="header">
+            <div class="year-month"></div>
+            <div class="nav">
+                <button class="nav-btn go-prev" onclick="prevMonth()">&lt;</button>
+                <button class="nav-btn go-today" onclick="goToday()">Today</button>
+                <button class="nav-btn go-next" onclick="nextMonth()">&gt;</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="days">
+                <div class="day">일</div>
+                <div class="day">월</div>
+                <div class="day">화</div>
+                <div class="day">수</div>
+                <div class="day">목</div>
+                <div class="day">금</div>
+                <div class="day">토</div>
+            </div>
+            <div id="datesbox" onclick="day_selected()" class="dates"></div>
+        </div>
+    </div>
+
+    <div id="select_box">
+
+        <select id="NoEarlierThan" name="NoEarlierThan">
+
+            <option value="0">12:00 AM</option>
+            <option value="1">1:00 AM</option>
+            <option value="2">2:00 AM</option>
+            <option value="3">3:00 AM</option>
+            <option value="4">4:00 AM</option>
+            <option value="5">5:00 AM</option
+            <option value="6">6:00 AM</option>
+            <option value="7">7:00 AM</option>
+            <option value="8">8:00 AM</option>
+            <option selected value="9">9:00 AM</option>
+            <option value="10">10:00 AM</option>
+            <option value="11">11:00 AM</option>
+            <option value="12">12:00 PM</option>
+            <option value="13">1:00 PM</option>
+            <option value="14">2:00 PM</option>
+            <option value="15">3:00 PM</option>
+            <option value="16">4:00 PM</option>
+            <option value="17">5:00 PM</option>
+            <option value="18">6:00 PM</option>
+            <option value="19">7:00 PM</option>
+            <option value="20">8:00 PM</option>
+            <option value="21">9:00 PM</option>
+            <option value="22">10:00 PM</option>
+            <option value="23">11:00 PM</option>
+            <option value="0">12:00 AM</option>
+
+        </select>
+
+        <select name="NoLaterThan">
+
+            <option value="0">12:00 AM</option>
+            <option value="1">1:00 AM</option>
+            <option value="2">2:00 AM</option>
+            <option value="3">3:00 AM</option>
+            <option value="4">4:00 AM</option>
+            <option value="5">5:00 AM</option>
+            <option value="6">6:00 AM</option>
+            <option value="7">7:00 AM</option>
+            <option value="8">8:00 AM</option>
+            <option value="9">9:00 AM</option>
+            <option value="10">10:00 AM</option>
+            <option value="11">11:00 AM</option>
+            <option value="12">12:00 PM</option>
+            <option value="13">1:00 PM</option>
+            <option value="14">2:00 PM</option>
+            <option value="15">3:00 PM</option>
+            <option value="16">4:00 PM</option>
+            <option selected value="17">5:00 PM</option>
+            <option value="18">6:00 PM</option>
+            <option value="19">7:00 PM</option>
+            <option value="20">8:00 PM</option>
+            <option value="21">9:00 PM</option>
+            <option value="22">10:00 PM</option>
+            <option value="23">11:00 PM</option>
+            <option value="0">12:00 AM</option>
+
+        </select>
+
+    </div>
+    <!-- <div id="event_name">
+    <input type="event_name" placeholder="이벤트명을 입력해 주세요"   onfocus="this.placeholder=''" onblur="this.placeholder='이벤트명을 입력해 주세요'">
+  </div> -->
+    <div id="event_name">
+        <input id="aaa" type="event_name" placeholder="이벤트명을 입력해 주세요" onfocus="this.placeholder=''"
+               onblur="this.placeholder='이벤트명을 입력해 주세요'">
+    </div>
+    <!--        <div onclick='printName()' id="create_button">-->
+    <div id="create_button">
+        <p>Create Event</p>
+    </div>
+
+    <div class="sub">
+        <div id="sub_event_name">
+        </div>
+
+
+        <table onclick="selected()" class="tg" style="undefined;table-layout: fixed; width: 147px">
+            <colgroup>
+                <col style="width: 150px">
+                <col style="width: 150px">
+                <col style="width: 150px">
+                <col style="width: 150px">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="tg-0lax-1"></th>
+                <th class="tg-0lax-1">7/12 (M)</th>
+                <th class="tg-0lax-1">7/13 (T)</th>
+                <th class="tg-0lax-1">7/14 (W)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="tg-0lax-1">9:00</td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+                <td class="tg-0lax-1">10:00</td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+                <td class="tg-0lax-1">11:00</td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+                <td class="tg-0lax-1">12:00</td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+                <td class="tg-0lax-1">13:00</td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+                <td class="tg-0lax-1">14:00</td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+                <td class="tg-0lax-1">15:00</td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+                <td class="tg-0lax-1">16:00</td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+            <tr>
+                <td class="tg-0lax-1">17:00</td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+                <td class="tg-0lax"></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="members">
+
+        <div class="available">
+            <a>yirang</a>
+        </div>
+
+    </div>
+
+    <div id="user_name_container">
+
+        <div id="user_name">
+            <input onclick=adduser() id="user" type="user_name" placeholder="이름을 입력해 주세요">
+        </div>
+
+
+        <div id="user_name_create" onclick="showuser()">
+            <a>Add me</a>
+        </div>
+
+    </div>
+
+    <div id="CopyLink">
+
+        <p onclick="copylink(); return false;">Copy Link</p>
+
+    </div>
+
+</div>
+
+<!-- copylink start -->
+
+<script type="text/javascript">
+
+    function copylink() {
+
+        let url = '';
+        let textarea = document.createElement("textarea");
+        document.body.appendChild(textarea);
+        url = window.document.location.href;
+        textarea.value = url;
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        alert("URL이 복사되었습니다.")
+
+    }
+
+</script>
+</div>
+
+
+</body>
+
+<script>
+
+    //달력
+
+    let date = new Date();
+    let dateList; // 모든 날짜의 클릭 여부를 담을 배열 선언
+
+    const renderCalender = () => {
+        const viewYear = date.getFullYear();
+        const viewMonth = date.getMonth();
+
+        document.querySelector('.year-month').textContent = `${viewYear}년 ${viewMonth + 1}월`;
+
+        const prevLast = new Date(viewYear, viewMonth, 0);
+        const thisLast = new Date(viewYear, viewMonth + 1, 0);
+
+        const PLDate = prevLast.getDate();   //이전달 날짜
+        const PLDay = prevLast.getDay();       //이전달 요일 0,1,2,3,4,5,6
+
+        const TLDate = thisLast.getDate();   //이번달 날짜
+        const TLDay = thisLast.getDay();    // 이번달 요일
+
+        const prevDates = [];
+        const thisDates = [...Array(TLDate + 1).keys()].slice(1);  //날짜를 담아주는 배열 0부터 담는다 Slice(1)=1부터 담는다
+        const nextDates = [];
+
+        dateList = Array(thisDates.length).fill(false) // thisDates의 길이만큼 (해당 월의 일수만큼) false로 채움
+
+        if (PLDay !== 6) {
+            for (let i = 0; i < PLDay + 1; i++) {
+                prevDates.unshift(PLDate - i);  //upshift= -1하면서 앞에칸을 채워준다.
+            }
+        }
+
+        for (let i = 1; i < 7 - TLDay; i++) {
+            nextDates.push(i);
+        }
+
+        const dates = prevDates.concat(thisDates, nextDates);
+        const firstDateIndex = dates.indexOf(1);
+        const lastDateIndex = dates.lastIndexOf(TLDate);
+
+        dates.forEach((date, i) => {
+            const condition = i >= firstDateIndex && i < lastDateIndex + 1
+                ? 'this'
+                : 'other';
+            dates[i] = `<div class="date"><span class=${condition}>${date}</span></div>`;
+        });
+
+
+        document.querySelector('.dates').innerHTML = dates.join('');
+
+        const today = new Date();    //오늘 을 뽑아내는 데이터
+        if (viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
+            for (let date of document.querySelectorAll('.this')) {
+                if (+date.innerText === today.getDate()) {
+                    date.classList.add('today');
+                    break;
+                }
+            }
+        }
+    };
+
+
+    renderCalender();
+
+    const prevMonth = () => {
+        date.setMonth(date.getMonth() - 1);
+        renderCalender();
+    };
+
+    const nextMonth = () => {
+        date.setMonth(date.getMonth() + 1);
+        renderCalender();
+    };
+
+    const goToday = () => {
+        date = new Date();
+        renderCalender();
+    };
+
+  function selected() {
+    let targetTime = event.target       // 선택한 시간 칸을 담는 변수
+    if(event.target.classList.length === 1){    // 만약 선택한 시간 칸의 태그가 갖고있는 class 갯수가 1개라면
+        targetTime.classList.add("clicked")     // 해당 태그의 클래스에 clicked를 추가해주고
+        event.target.style.backgroundColor = "rgb(136, 136, 136)"   // 색칠함
+    }else{
+        targetTime.classList.remove("clicked")  // 만약 선택한 시간 칸의 태그가 갖고있는 class 갯수가 1개보다 크다면
+        event.target.style.backgroundColor = "rgb(255, 255, 255)"   // 색칠한걸 지워주고
+        targetTime.classList.remove("clicked")                      // clicked class 도 지워줌
+    }
+  }
+
+    const clicked_date = [] // 클릭한 날짜를 담는 배열
+    function day_selected() {
+        let targetDate = event.target.textContent   // 클릭한 날짜 칸에서 날짜 숫자 뽑아오는 코드
+        let targetDateIdx = dateList.indexOf(targetDate) + 1  // 클릭한 날짜의 '날짜' 받아오기
+        dateList[targetDate-1] = !dateList[targetDate-1]    // 클릭한 날짜가 true면 false로, false면 true로 바꿔주는 코드
+                                                            // 인덱스는 0부터 시작하기 때문에 -1을 빼주는 것
+        event.target.style.backgroundColor = "rgb(136, 136, 136)"   // 날짜 칸에다가 색칠하는 코드
+
+        if(!dateList[targetDate-1]){                                // 만약 클릭한 날짜칸이 이미 클릭이 되어있다면(true 라면)
+            event.target.style.backgroundColor = "rgb(255, 255, 255)"   // 하얀색으로 색칠하는 코드
+       }
+   }
+
+</script>
+</html>
