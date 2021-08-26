@@ -97,7 +97,7 @@ function makeReview() {
 }
 ```
 
-## 08. [모두의책리뷰] - POST 연습(리뷰 저장)
+## 08. [bookreview] - POST 연습(리뷰 저장)
 ### 13) API 만들고 사용하기
 `제목, 저자, 리뷰 정보 저장하기(Create → **POST**)`
 1. 클라이언트와 서버 확인하기
@@ -117,7 +117,7 @@ function makeReview() {
 <br> JavaScript Object Notation (JSON)은 Javascript 객체 문법으로 구조화된 데이터를 표현하기 위한 문자 기반의 표준 포맷입니다. **웹 어플리케이션에서 데이터를 전송할 때 일반적으로 사용**합니다(서버에서 클라이언트로 데이터를 전송하여 표현하려거나 반대의 경우).
 - Code : [mini_projects/bookreview/](https://github.com/2nchanter/SCC_Beginner_class/tree/main/mini_projects/bookreview)
 
-## 09. [모두의책리뷰] - GET 연습(리뷰 보여주기)
+## 09. [bookreview] - GET 연습(리뷰 보여주기)
 ### 14) API 만들고 사용하기
 `저장된 리뷰를 화면에 보여주기(Read → GET)`
 
