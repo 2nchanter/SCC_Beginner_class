@@ -78,7 +78,7 @@ console.log(`${num1} + ${num2} = ${num1+num2} 입니다.`);
 ### 7) jQuery, JS ?
 - jQuery가 JS보다 몇줄 안쓰고도 기능 구현이 가능하다. 따라서 개발 속도는 빨라진다. 하지만 jQuery는 JS로 만들었기 때문에 처리 속도는 느리다. 이걸 pc가 보완해줄 뿐이다.
 -> 결론 : 평상시 jQuery를 즐겨 쓰되, 빠른 처리속도가 필요할때 JS를 섞자.
-- code : [practice.html](https://github.com/2nchanter/SCC_Beginner_class/blob/main/frontend_prac/practice.html)
+- code : [frontend_prac/practice.html](https://github.com/2nchanter/SCC_Beginner_class/blob/main/frontend_prac/practice.html)
 
 - Q. let 이게 왜 안되지?;;
 <br> 2, 3번째 let은 .split이 될 때는 값이 들어가지만, 안 될때는 값이 없어서 에러를 띄우게 된다.
