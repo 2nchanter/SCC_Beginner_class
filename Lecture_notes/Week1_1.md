@@ -42,7 +42,7 @@
 <br> 버튼 : `<button>`
 <br> 빈칸 : `<input type="text" />`
 
-- Code : [01_login.html](https://github.com/2nchanter/SCC_Beginner_class/blob/main/frontend_prac/01_login.html)
+- Code : [frontend_prac/01_login.html](https://github.com/2nchanter/SCC_Beginner_class/blob/main/frontend_prac/01_login.html)
 
 ## 05. CSS 기초
 ### 10) HTML 부모-자식 구조 살펴보기, CSS 기초
@@ -107,4 +107,4 @@ color, width, height, border-radius, margin, padding`
 
 ## 10. Quiz_나홀로메모장+포스팅박스
 ### 19) 나홀로 메모장
-- Code : [index.html](https://github.com/2nchanter/SCC_Beginner_class/blob/main/frontend_prac/index.html)
+- Code : [frontend_prac/index.html](https://github.com/2nchanter/SCC_Beginner_class/blob/main/frontend_prac/index.html)
