@@ -79,3 +79,21 @@ console.log(`${num1} + ${num2} = ${num1+num2} 입니다.`);
 - jQuery가 JS보다 몇줄 안쓰고도 기능 구현이 가능하다. 따라서 개발 속도는 빨라진다. 하지만 jQuery는 JS로 만들었기 때문에 처리 속도는 느리다. 이걸 pc가 보완해줄 뿐이다.
 -> 결론 : 평상시 jQuery를 즐겨 쓰되, 빠른 처리속도가 필요할때 JS를 섞자.
 - code : [practice.html](https://github.com/2nchanter/SCC_Beginner_class/blob/main/frontend_prac/practice.html)
+
+- Q. let 이게 왜 안되지?;;
+<br> 2, 3번째 let은 .split이 될 때는 값이 들어가지만, 안 될때는 값이 없어서 에러를 띄우게 된다.
+<br> if문 사용하여 에러 띄울때, 분류되는 걸 잘 생각하자.
+<img src="https://user-images.githubusercontent.com/89369520/130961497-7b59c617-0b0a-4a81-b9fb-81175918451b.png" height="200">
+
+```python
+function q2() {
+   let email = $('#input-q2').val();
+   let result1 = email.split('@')[1]
+   let result2 = result1.split('.')[0]
+   if (email.includes('@')) {
+      alert(result2);
+   } else {
+      alert('이메일이 아닙니다!');
+   }
+}
+```
