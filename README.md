@@ -8,13 +8,13 @@ Sparta Coding Club, 웹개발 종합반 - https://spartacodingclub.kr/online/sta
 HTML, CSS, JS, jQuery, Ajax, Python, DB, pymongo, Flask, AWS
 
 ## 강의내용 정리
-- [1주차 part.1](https://velog.io/@2nchanter/1%EC%A3%BC%EC%B0%A8-part.1)
-- [1주차 part.2](https://velog.io/@2nchanter/1%EC%A3%BC%EC%B0%A8-part.2)
-- [2주차 part.1](https://velog.io/@2nchanter/2%EC%A3%BC%EC%B0%A8-part.1)
-- [2주차 part.2](https://velog.io/@2nchanter/2%EC%A3%BC%EC%B0%A8-part.2)
-- [3주차 part.1](https://velog.io/@2nchanter/3%EC%A3%BC%EC%B0%A8-part.1)
-- [3주차 part.2](https://velog.io/@2nchanter/3%EC%A3%BC%EC%B0%A8-part.2)
-- [4주차 part.1](https://velog.io/@2nchanter/4%EC%A3%BC%EC%B0%A8-part.1)
-- [4주차 part.2](https://velog.io/@2nchanter/4%EC%A3%BC%EC%B0%A8-part.2)
-- [5주차 part.1](https://velog.io/@2nchanter/5%EC%A3%BC%EC%B0%A8-part.1)
-- [5주차 part.2](https://velog.io/@2nchanter/5%EC%A3%BC%EC%B0%A8-part.2)
+- [Week1_1.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week1_1.md)
+- [Week1_2.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week1_2.md)
+- [Week2_1.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week2_1.md)
+- [Week2_2.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week2_2.md)
+- [Week3_1.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week3_1.md)
+- [Week3_2.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week3_2.md)
+- [Week4_1.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week4_1.md)
+- [Week4_2.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week4_2.md)
+- [Week5_1.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week5_1.md)
+- [Week5_2.md](https://github.com/2nchanter/SCC_Beginner_class/blob/main/Lecture_notes/Week5_2.md)
