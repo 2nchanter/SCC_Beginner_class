@@ -198,4 +198,4 @@ for (let i = 0 ; i < scores.length ; i++) {
 ### *) 기획서(레이아웃) 보기
 <img src="https://user-images.githubusercontent.com/89369520/130957454-993ec7e4-be19-413e-b86f-d63bf671e21b.png" height="500">
 
-- Code : [01_HW.html](https://github.com/2nchanter/SCC_Beginner_class/blob/main/frontend_prac/01_HW.html)
+- Code : [frontend_prac/01_HW.html](https://github.com/2nchanter/SCC_Beginner_class/blob/main/frontend_prac/01_HW.html)
