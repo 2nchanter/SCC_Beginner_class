@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>to JPN</title>
+
+    <meta property="og:title" content="Trip to JPN" />
+    <meta property="og:description" content="OSAKA" />
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Serif KR', serif;
+        }
+        .wrap {
+            width : 500px;
+            margin : 50px auto auto auto;
+        }
+        .photo {
+            background-image: url("https://www.wallpapertip.com/wmimgs/39-392008_osaka-dotonbori.jpg");
+            background-size: cover;
+            width : 500px;
+            height : 300px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+        }
+        .btn {
+            font-size: 13px;
+            margin : auto;
+            display : block;
+        }
+        .f13 {
+            font-size: 13px;
+        }
+        .f15 {
+            font-size: 15px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            q0();
+            q2();
+        });
+
+        function q0() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/rate",
+                data: {},
+                success: function (response) {
+                    let Temp_html = (response['rate'])
+                    $('#real_rate').append(Temp_html)
+                }
+            })
+        }
+
+        function q1() {
+            let name = $('#name').val()
+            let adrs = $('#adrs').val()
+            let sgnt = $('#inputGroupSelect01').val()
+            let tel = $('#tel').val()
+
+            $.ajax({
+                type: "POST",
+                url: "/order",
+                data: {name_give:name, adrs_give:adrs, sgnt_give:sgnt, tel_give:tel},
+                success: function (response) { // 성공하면
+                    if (response["result"] == "success") {
+                        alert(response["msg"]);
+                        window.location.reload();
+                    }
+                }
+            })
+        }
+
+        function q2() {
+            $.ajax({
+                type: "GET",
+                url: "/order",
+                data: {},
+                success: function (response) {
+                    let data = response['client_data']
+                    for (let i = 0; i < data.length; i++) {
+                        let name = data[i]['name']
+                        let adrs = data[i]['adrs']
+                        let sgnt = data[i]['sgnt']
+                        let tel = data[i]['tel']
+
+                        let temp_html = `<tr>
+                                             <th scope="row">${name}</th>
+                                             <td>${adrs}</td>
+                                             <td>${sgnt}</td>
+                                             <td>${tel}</td>
+                                         </tr>
+                        `
+                        $('#client_table').append(temp_html)
+                    }
+                }
+            })
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="photo"></div>
+        <h3>Osaka <span class="f13">price : 48,307.31JPN</span></h3>
+        <p class="f13" style="color: blue">환율:<span id="real_rate"></span></p>
+        <p class="f15">오사카 2박 3일, COVID 끝나고 다시 갈 수만 있다면 꿈만 같지 않을까.</p>
+        <div class="f15">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">여행자 성함</span>
+                </div>
+                <input id='name' type="text" class="form-control" placeholder="최영찬" aria-label="Username"
+                       aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">여행자 주소</span>
+                </div>
+                <input id='adrs' type="text" class="form-control" placeholder="서울특별시 노원구" aria-label="Username"
+                       aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">시그니처</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>선택</option>
+                    <option value="1">도톤보리</option>
+                    <option value="2">청수사</option>
+                    <option value="3">사슴공원</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">전화번호</span>
+                </div>
+                <input id='tel' type="text" class="form-control" placeholder="010.1324.5768" aria-label="Username"
+                       aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary btn" onclick="q1()">신청하기</button>
+        <p></p>
+        <table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">성함</th>
+		      <th scope="col">주소</th>
+		      <th scope="col">시그니처</th>
+		      <th scope="col">전화번호</th>
+		    </tr>
+		  </thead>
+		  <tbody id="client_table">
+		  </tbody>
+		</table>
+    </div>
+</body>
+
+</html>
