@@ -128,7 +128,6 @@ db.createUser({user: "test", pwd: "test", roles:["root"]});
 ```bash
 # 나오기
 exit
-
 # MongoDB 재시작
 sudo service mongod restart
 ```
