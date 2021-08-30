@@ -115,6 +115,7 @@ http://[내 EC2 IP]:5000/
 ```bash
     mongo
 ```
+
 2. 좌측에 '>' 표시가 나오면 성공적으로 MongoDB에 접속한 것입니다! 다음 명령어를 순차적으로 입력해주세요. 눈치 채셨겠지만, test, test 자리에 내가 넣고 싶은 아이디/비밀번호를 넣으면 됩니다. (영어로..!)
 ```bash
 # admin으로 계정 바꾸기
@@ -125,12 +126,14 @@ db.createUser({user: "test", pwd: "test", roles:["root"]});
 ```
 3. 아래와 같은 화면을 보면 완성!
 <img src="https://user-images.githubusercontent.com/89369520/130973398-b364229f-442f-4698-87a9-0473a94c1d08.png" height="70">
-```bash
+
+``` bash
 # 나오기
 exit
 # MongoDB 재시작
 sudo service mongod restart
 ```
+
 #### +mongoDB를 외부에 열어주기
 1. mongoDB는 디폴트로 내부에서만 접속을 허용하고 있습니다. 이 작업은 외부에서 접근이 가능하도록 잠금을 풀어주는 것입니다. 리눅스 자체 에디터(고급 메모장 정도로 생각!)인 Vim이 등장합니다.
 `a` 를 눌러야 입력 모드가 되고, `:wq` 를 눌러야 저장하고 나올 수 있습니다.
