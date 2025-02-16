@@ -1,5 +1,4 @@
 # SCC_Beginner_class
-
 <br>
 Sparta Coding Club, 웹개발 종합반 - https://spartacodingclub.kr/online/start
 <br>
